@@ -22,7 +22,7 @@ emptyUser
 emptyPass
     Open Browser    https://www.saucedemo.com/    firefox
     Input Text    //*[@id="user-name"]    standard_user
-    Input Password    //*[@id="password"]    ${EMPTY}\n
+    Input Password    //*[@id="password"]    ${EMPTY}
     Click Button    //*[@id="login-button"]
     Element Should Contain    //*[@id="login_button_container"]/div/form/div[3]/h3    Epic sadface: Password is required
     Close Browser
