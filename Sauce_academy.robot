@@ -28,9 +28,17 @@ emptyPass
     Close Browser
 
 invalidBoth
-    pen Browser    https://www.saucedemo.com/    firefox
+    Open Browser    https://www.saucedemo.com/    firefox
     Input Text    //*[@id="user-name"]    ${EMPTY}
-    Input Password    //*[@id="password"]    secret_sauce
+    Input Password    //*[@id="password"]    ${EMPTY}
     Click Button    //*[@id="login-button"]
     Element Should Contain    //*[@id="login_button_container"]/div/form/div[3]/h3    Epic sadface: Username is required
+    Close Browser
+
+failerror
+    Open Browser    https://www.saucedemo.com/    firefox
+    Input Text    //*[@id="user-name"]    standard_user
+    Input Password    //*[@id="password"]    ${EMPTY}
+    Click Button    //*[@id="login-button"]
+    Element Should Contain    //*[@id="login_button_container"]/div/form/div[3]/h3    Epic sadface: Password is required
     Close Browser
