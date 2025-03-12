@@ -28,9 +28,9 @@ loginGoodTen
 
 registt
     Open Browser    https://keprendeles.optikart.hu/register/    firefox
-    Input Text    //*[@id="user_login-5473"]    aaa
-    Input Text    //*[@id="first_name-5473"]    aaa
-    Input Text    //*[@id="last_name-5473"]    aaa
+    Input Text    //*[@id="user_login-5473"]    a
+    Input Text    //*[@id="first_name-5473"]    a
+    Input Text    //*[@id="last_name-5473"]    a
     Input Password    //*[@id="user_password-5473"]    Qwertz123456
     Input Password    //*[@id="confirm_user_password-5473"]    Qwertz123456
     Click Button    //*[@id="um-submit-btn"]
@@ -64,9 +64,18 @@ login_with_empty_password
 
 login_with_empty_credential
     Open Browser    https://keprendeles.optikart.hu/login/?redirect_to=https%3A%2F%2Fkeprendeles.optikart.hu%2Fpquery%2F    firefox
-    Input Text    //*[@id="username-5474"]    ${EMPTY}
+    Input Text    //*[@id="username-5474"]     ${EMPTY}
     Input Password    //*[@id="user_password-5474"]    ${EMPTY}
     Click Button    //*[@id="um-submit-btn"]
     Element Should Contain    //*[@id="um-error-for-username-5474"]    Please enter your username or email
     Element Should Contain    //*[@id="um-error-for-user_password-5474"]    Please enter your password
     Close Browser
+
+login_with_wrong_user
+    Open Browser    https://keprendeles.optikart.hu/login/?redirect_to=https%3A%2F%2Fkeprendeles.optikart.hu%2Fpquery%2F    firefox
+    Input Text    //*[@id="username-5474"]     kar
+    Input Password    //*[@id="user_password-5474"]    Qwertz123456
+    Click Button    //*[@id="um-submit-btn"]
+    Element Should Contain    //*[@id="um-error-for-user_password-5474"]    Please enter your password
+    Close Browser
+    
